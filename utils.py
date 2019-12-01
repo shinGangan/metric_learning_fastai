@@ -14,6 +14,7 @@ from tqdm import tqdm
 import os
 
 def prepare_full_MNIST_databunch(data_folder, tfms):
+    #  データセットの取得
     train_ds = datasets.MNIST(data_folder, train=True, download=True,
                             transform=transforms.Compose([
                                 transforms.Normalize((0.1307,), (0.3081,))
@@ -47,6 +48,7 @@ def prepare_full_MNIST_databunch(data_folder, tfms):
 
 
 def body_feature_model(model):
+    #  モデルの最終層を切り出して取得する
     try:
         body, head = list(model.org_model.children())
     except:

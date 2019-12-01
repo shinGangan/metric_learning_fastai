@@ -84,6 +84,7 @@ if __name__ == "__main__":
     data = prepare_full_MNIST_databunch(DATA, get_transforms(do_flip=False))
 
     if args[1] == "0":
+        print("")
         raw_data_distribution()
     elif args[1] == "1":
         conventional_softmax_model()
