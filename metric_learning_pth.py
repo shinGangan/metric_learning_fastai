@@ -10,7 +10,7 @@ from torchvision import datasets, transforms
 from torch import nn
 import PIL
 from tqdm import tqdm
-from dlcliche.image import *
+#from dlcliche.image import *
 
 import matplotlib.pyplot as plt
 from sklearn.manifold import TSNE
