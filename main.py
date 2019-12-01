@@ -83,11 +83,11 @@ if __name__ == "__main__":
     DATA = Path("data")
     data = prepare_full_MNIST_databunch(DATA, get_transforms(do_flip=False))
 
-    if args[1] == 1:
+    if args[1] == "0":
         raw_data_distribution()
-    elif args[1] == 2:
+    elif args[1] == "1":
         conventional_softmax_model()
-    elif args[1] == 3:
+    elif args[1] == "2":
         l2_constrained_softmax_model()
     else:
-        pass
+        print("Do not run")
