@@ -9,7 +9,7 @@ from fastai.vision import *
 from torchvision import datasets, transforms
 from torch import nn
 import PIL
-from tqdm import tqdm
+import tqdm
 #from dlcliche.image import *
 
 import matplotlib.pyplot as plt
