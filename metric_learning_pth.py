@@ -2,7 +2,7 @@
 #   coding:utf-8
 #------------------------------------------------------------
 #   Updata History
-#   November  25  21:00, 2019 (Mon)
+#   December  02  03:00, 2019 (Mon)
 #------------------------------------------------------------
 
 from fastai.vision import *
@@ -10,6 +10,7 @@ from torchvision import datasets, transforms
 from torch import nn
 import PIL
 import tqdm
+#from tqdm import tqdm
 #from dlcliche.image import *
 
 import matplotlib.pyplot as plt
@@ -34,7 +35,7 @@ def prepare_full_MNIST_databunch(data_folder, tfms):
         images = data_folder/"images"
         for i, (x, y) in tqdm.tqdm(enumerate(zip(X, labels))):
             folder = images/dest_folder/f"{y}"
-            ensure_folder(folder)
+            #ensure_folder(folder)
             x = x.numpy()
             image = np.stack([x for ch in range(3)], axis=-1)
             PIL.Image.fromarray(image).save(folder/f"img{y}_{i:06d}.png")
