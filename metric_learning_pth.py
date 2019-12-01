@@ -104,6 +104,16 @@ def show_as_PCA(latent_vecs, target, title="PCA viz"):
     plt.show()
 
 """
+    CNNモデル
+"""
+def learner_conventional(train_data):
+    learn = cnn_learner(train_data, models.resnet18, metrics=accuracy)
+    learn.fit(1)
+    learn.unfreeze()
+    learn.fit(3)
+    return learn
+
+"""
 
 """
 DATA = Path("data")
@@ -123,3 +133,7 @@ if False:
     raw_y = raw_y[chosen_idxes]
 
 show_2D_tSNE(raw_x, raw_y, "Raw sample distributions (t-SNE)")
+
+learn = learner_conventional(data)
+embs = get_embeddings(body_feature_model(learn.model), data.valid_dl)
+show_2D_tSNE(embs, [int(y) for y in data.valid_ds.y], title="Simply trained ResNet18(t-SNE)")
